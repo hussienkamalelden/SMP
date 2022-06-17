@@ -17,9 +17,9 @@
     }
 
     &.active {
-      color: $black;
+      color: $font-color;
       cursor: default;
-      background-color: $white;
+      background-color: $grey-1;
       text-decoration: none;
     }
   }
