@@ -1,8 +1,8 @@
 <template>
-    <div id="demo">
-        <form id="search">
-            Search <input name="query" v-on:keyup="Search(Message)" v-model="Message">
-            <input type="reset">
+    <div>
+        <form class="form-holder" id="search">
+            <input class="search-bar" name="query" v-on:keyup="Search(Message)" v-model="Message" placeholder="Search">
+            <input class="clear-btn" type="reset" value="Clear" v-on:click="Reset()">
         </form>
     </div>
 </template>
@@ -20,8 +20,9 @@ export default {
         }
     },
     methods: {
-        Search: function (query) {
+        Highlight: function (query) {
             let queryReg = new RegExp(query, 'i');
+
             //Check employee names
             document.querySelectorAll('.employee-name').forEach(function (el) {
                 if (queryReg.test(el.textContent)) {
@@ -41,8 +42,20 @@ export default {
                 }
             });
         },
+        ClearHighlight: function () {
+            //give all highlighted elements white background
+            document.querySelectorAll('.highlight').forEach(function (el) {
+                el.style.backgroundColor = "white";
+                el.style.color = "#445065";
+            });
+        },
+        Search: function (query) {
+            this.ClearHighlight();
+            this.Highlight(query);
+        },
         Reset: function () {
-
+            this.ClearHighlight();
+            this.$router.replace('/');
         }
     },
     mounted() {

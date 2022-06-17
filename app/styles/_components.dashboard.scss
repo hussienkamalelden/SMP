@@ -1,19 +1,26 @@
 .top-links {
   text-align: center;
-  padding: 16px 0;
+  padding: 16px 0 0;
 
   a {
     text-decoration: none;
-    color: $primary;
+    color: $white;
     margin-left: 32px;
+    border: 1px solid $grey-1;
+    border-radius: 10px 10px 0 0;
+    padding: 10px;
+    background-color: $primary;
+    margin: 0;
 
-    &:hover:not(.active){
+    &:hover{
       text-decoration: underline;
     }
 
     &.active {
       color: $black;
       cursor: default;
+      background-color: $white;
+      text-decoration: none;
     }
   }
 }
@@ -38,6 +45,25 @@
   padding: 16px 8px;
   border: 1px solid $secondary;
   background-color: $grey-1;
+  text-align: center;
+  .form-holder{
+    .search-bar{
+      border: none;
+      padding: 6px 12px;
+    }
+    .clear-btn{
+      background-color: $blue-1;
+      border: none;
+      outline: none;
+      color: $white;
+      padding: 6px 12px;
+      border-radius: 5px;
+      transition: all .2;
+      &:hover{
+        background-color: $blue-2;
+      }
+    }
+  }
 }
 
 .c-chart__container {
