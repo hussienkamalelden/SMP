@@ -4,7 +4,7 @@
 
   a {
     text-decoration: none;
-    color: #0099ff;
+    color: $primary;
     margin-left: 32px;
 
     &:hover:not(.active){
@@ -12,7 +12,7 @@
     }
 
     &.active {
-      color: black;
+      color: $black;
       cursor: default;
     }
   }
@@ -36,8 +36,8 @@
 .c-filters__container {
   margin: 0 0 8px;
   padding: 16px 8px;
-  border: 1px solid #dcdee3;
-  background-color: #e5e9f1;
+  border: 1px solid $secondary;
+  background-color: $grey-1;
 }
 
 .c-chart__container {
@@ -47,8 +47,8 @@
 
 .c-button {
   height: 40px;
-  background-color: #0099ff;
-  color: white;
+  background-color: $primary;
+  color: $white;
   min-width: 120px;
   padding: 0 16px;
   border-radius: 4px;
