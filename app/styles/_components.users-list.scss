@@ -8,13 +8,20 @@
     display: table-row;
     font-size: 16px;
     font-weight: 500;
-    background-color: #e5e9f1;
+    background-color: $blue-1;
+    color: $white;
 
     > div {
       display: table-cell;
       text-align: center;
       vertical-align: middle;
       font-size: 14px;
+      padding: 10px 10px;
+      font-weight: bold;
+      border: 1px solid $secondary;
+    }
+    div:nth-of-type(5){
+      white-space: nowrap;
     }
   }
 
@@ -24,8 +31,19 @@
 
     > div {
       display: table-cell;
-      padding: 0 8px;
+      // padding: 0 8px;
       vertical-align: middle;
+      border: 1px solid $secondary;
+      padding: 0 10px;
+    }
+    .ng-binding:nth-of-type(4){
+      white-space: nowrap;
+    }
+    .ng-binding:nth-of-type(5){
+      text-align: center;
+    }
+    &:nth-of-type(odd){
+      background-color: rgb(249, 249, 249);
     }
   }
 
