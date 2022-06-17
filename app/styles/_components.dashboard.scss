@@ -7,6 +7,10 @@
     color: #0099ff;
     margin-left: 32px;
 
+    &:hover:not(.active){
+      text-decoration: underline;
+    }
+
     &.active {
       color: black;
       cursor: default;
