@@ -63,7 +63,12 @@ export default {
           transitionDuration: 0,
           confine: false,
           hideDelay: 0,
-          padding: 0,
+          padding: [5, 20],
+          backgroundColor: "#16253F",
+          textStyle: {
+            color: "white",
+            align: 'center',
+          }
         },
         grid: {
           left: "30px",
@@ -114,11 +119,12 @@ export default {
             }
           ],
           outOfRange: {
-            color: '#999'
+            color: '#fff'
           }
         },
         series: [
           {
+            name: 'Team Performeance Index:',
             data: this.yAxisData,
             type: "line",
             symbol: "circle",
@@ -137,7 +143,6 @@ export default {
     },
 
     yAxisData() {
-      console.log(this.chartData.map((item) => +item.performance * 100)[4]);
       return this.chartData.map((item) => +item.performance * 100);
     },
   },

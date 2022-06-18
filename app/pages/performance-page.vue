@@ -1,9 +1,9 @@
 <template>
   <div class="c-dashboard">
     <form class="c-filters__container">
-      <label for="start">Start date:</label>
+      <label class="start-date-label" for="start">Start date:</label>
       <input type="date" id="start-date" name="start" :min="min" :max="max" @input="startDate()">
-      <label for="end">End date:</label>
+      <label class="end-date-label" for="end">End date:</label>
       <input type="date" id="end-date" name="end" :min="endMin" :max="max" @input="endDate()" disabled>
     </form>
     <div class="c-dashboard__header">
