@@ -40,30 +40,6 @@ export default {
           date_ms: 0,
           performance: 0,
         },
-        {
-          date_ms: 0,
-          performance: 0,
-        },
-        {
-          date_ms: 0,
-          performance: 0,
-        },
-        {
-          date_ms: 0,
-          performance: 0,
-        },
-        {
-          date_ms: 0,
-          performance: 0,
-        },
-        {
-          date_ms: 0,
-          performance: 0,
-        },
-        {
-          date_ms: 0,
-          performance: 0,
-        },
       ],
     };
   },

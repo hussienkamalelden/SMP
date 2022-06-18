@@ -12,26 +12,28 @@ import Vue from 'vue';
 
 //Functions ..
 let Highlight = function (query) {
-    let queryReg = new RegExp(query, 'i');
+    if (query != null) {
+        let queryReg = new RegExp(query, 'i');
 
-    //Check employee names
-    document.querySelectorAll('.employee-name').forEach(function (el) {
-        if (queryReg.test(el.textContent)) {
-            el.innerHTML = el.textContent.replace(queryReg, '<span class="highlight">$&</span>');
-        }
-    });
-    //Check employee address
-    document.querySelectorAll('.employee-address').forEach(function (el) {
-        if (queryReg.test(el.textContent)) {
-            el.innerHTML = el.textContent.replace(queryReg, '<span class="highlight">$&</span>');
-        }
-    });
-    //Check employee About
-    document.querySelectorAll('.employee-about').forEach(function (el) {
-        if (queryReg.test(el.textContent)) {
-            el.innerHTML = el.textContent.replace(queryReg, '<span class="highlight">$&</span>');
-        }
-    });
+        //Check employee names
+        document.querySelectorAll('.employee-name').forEach(function (el) {
+            if (queryReg.test(el.textContent)) {
+                el.innerHTML = el.textContent.replace(queryReg, '<span class="highlight">$&</span>');
+            }
+        });
+        //Check employee address
+        document.querySelectorAll('.employee-address').forEach(function (el) {
+            if (queryReg.test(el.textContent)) {
+                el.innerHTML = el.textContent.replace(queryReg, '<span class="highlight">$&</span>');
+            }
+        });
+        //Check employee About
+        document.querySelectorAll('.employee-about').forEach(function (el) {
+            if (queryReg.test(el.textContent)) {
+                el.innerHTML = el.textContent.replace(queryReg, '<span class="highlight">$&</span>');
+            }
+        });
+    }
 }
 
 let ClearHighlight = function () {
