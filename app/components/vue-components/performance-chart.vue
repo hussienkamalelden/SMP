@@ -30,9 +30,6 @@ use([
 export default {
   name: "PerformanceChartComponent",
   props: ["currMin", "currMax"],
-  created: function () {
-    console.log('>>>>>>>>>>>>>>>>>>>>>', this.currMin)
-  },
   components: {
     VChart,
   },
