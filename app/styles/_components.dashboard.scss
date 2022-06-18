@@ -46,6 +46,9 @@
   border: 1px solid $secondary;
   background-color: $grey-1;
   text-align: center;
+  .end-date-label{
+    margin-left: 1rem;
+  }
   .form-holder{
     .search-bar{
       border: none;
