@@ -16,6 +16,7 @@ import {
   VisualMapComponent,
 } from "echarts/components";
 import VChart from "vue-echarts";
+import axios from 'axios';
 
 use([
   CanvasRenderer,
@@ -28,41 +29,16 @@ use([
 
 export default {
   name: "PerformanceChartComponent",
-
+  props: ["currMin", "currMax"],
   components: {
     VChart,
   },
-
   data() {
     return {
       chartData: [
         {
-          date_ms: 1641772800000,
-          performance: 0.2,
-        },
-        {
-          date_ms: 1641859200000,
-          performance: 0.33,
-        },
-        {
-          date_ms: 1641945600000,
-          performance: 0.53,
-        },
-        {
-          date_ms: 1642032000000,
-          performance: 0.31,
-        },
-        {
-          date_ms: 1642118400000,
-          performance: 0.65,
-        },
-        {
-          date_ms: 1642204800000,
-          performance: 0.88,
-        },
-        {
-          date_ms: 1642291200000,
-          performance: 0.07,
+          date_ms: 0,
+          performance: 0,
         },
       ],
     };
@@ -87,7 +63,12 @@ export default {
           transitionDuration: 0,
           confine: false,
           hideDelay: 0,
-          padding: 0,
+          padding: [5, 20],
+          backgroundColor: "#16253F",
+          textStyle: {
+            color: "white",
+            align: 'center',
+          }
         },
         grid: {
           left: "30px",
@@ -100,6 +81,8 @@ export default {
           type: "category",
           showGrid: false,
           data: this.xAxisData,
+          min: moment(this.currMin).format("DD MMM YYYY"),
+          max: moment(this.currMax).format("DD MMM YYYY"),
           axisLine: {
             show: true,
           },
@@ -115,8 +98,33 @@ export default {
           axisTick: { show: true },
           splitLine: { show: true },
         },
+        visualMap: {
+          top: 50,
+          right: 10,
+          pieces: [
+            {
+              gt: 0,
+              lte: 50,
+              color: 'red'
+            },
+            {
+              gt: 50,
+              lte: 80,
+              color: 'yellow'
+            },
+            {
+              gt: 80,
+              lte: 100,
+              color: 'green'
+            }
+          ],
+          outOfRange: {
+            color: '#fff'
+          }
+        },
         series: [
           {
+            name: 'Team Performeance Index:',
             data: this.yAxisData,
             type: "line",
             symbol: "circle",
@@ -144,5 +152,11 @@ export default {
       return moment(dateInMs).format("DD MMM YYYY");
     },
   },
+  mounted() {
+    axios.get('https://fe-task.getsandbox.com/performance', {})
+      .then(response => {
+        this.chartData = response.data;
+      })
+  }
 };
 </script>
