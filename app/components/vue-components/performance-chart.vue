@@ -93,6 +93,30 @@ export default {
           axisTick: { show: true },
           splitLine: { show: true },
         },
+        visualMap: {
+          top: 50,
+          right: 10,
+          pieces: [
+            {
+              gt: 0,
+              lte: 50,
+              color: 'red'
+            },
+            {
+              gt: 50,
+              lte: 80,
+              color: 'yellow'
+            },
+            {
+              gt: 80,
+              lte: 100,
+              color: 'green'
+            }
+          ],
+          outOfRange: {
+            color: '#999'
+          }
+        },
         series: [
           {
             data: this.yAxisData,
@@ -113,6 +137,7 @@ export default {
     },
 
     yAxisData() {
+      console.log(this.chartData.map((item) => +item.performance * 100)[4]);
       return this.chartData.map((item) => +item.performance * 100);
     },
   },
