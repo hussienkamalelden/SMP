@@ -29,7 +29,10 @@ use([
 
 export default {
   name: "PerformanceChartComponent",
-
+  props: ["currMin", "currMax"],
+  created: function () {
+    console.log('>>>>>>>>>>>>>>>>>>>>>', this.currMin)
+  },
   components: {
     VChart,
   },
@@ -76,6 +79,8 @@ export default {
           type: "category",
           showGrid: false,
           data: this.xAxisData,
+          min: moment(this.currMin).format("DD MMM YYYY"),
+          max: moment(this.currMax).format("DD MMM YYYY"),
           axisLine: {
             show: true,
           },
